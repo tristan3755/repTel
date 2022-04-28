@@ -5,7 +5,7 @@ import bodyparser from "body-parser"
 import path from "path"
 import cors from "cors"
 import {connectDb} from "./config/database.js"
-// import {router} from "./routers/post.js"
+ import {routerEmployees} from "./routers/employees.js"
  import {routerUser} from "./routers/user.js"
 
 dotenv.config({path:"./config/config.env"})
@@ -16,6 +16,6 @@ app.use(bodyparser.json())
 connectDb()
 
 app.use(cors())
-// app.use('/post',router)
- app.use('/users',routerUser)
+app.use('/employee',routerEmployees)
+app.use('/users',routerUser)
 app.listen(process.env.PORT || 4000)
